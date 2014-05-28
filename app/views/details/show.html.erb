@@ -4,7 +4,7 @@
   <%= @detail.category.try :name %>
 </p>
 
-<p>
+
   <strong>Public:</strong>
   <%= @detail.public %>
 </p>
@@ -18,34 +18,38 @@
   <strong>Description:</strong>
   <%= @detail.description %>
 </p>
-
 <p>
-  <strong>Pricenumber:</strong>
+ <% for program in @detail.programs %> 
+  <strong>Program:</strong>
+  <strong>When: </strong> <%=  program.when %>
+    <strong>What: <strong/><%=  program.what %>
+ </p> 
+ <% end%>
+<p>
+  <strong>Pricing:</strong>
   <%= @detail.priceNumber %>
-</p>
 
-<p>
-  <strong>Priceper:</strong>
+
+
+  <strong> € per</strong>
   <%= @detail.pricePer %>
 </p>
 
 <p>
-  <strong>Whatinclude:</strong>
+  <strong>What is included:</strong>
   <%= @detail.whatInclude %>
 </p>
 
 <p>
-  <strong>Whatexclude:</strong>
+  <strong>What is NOT included:</strong>
   <%= @detail.whatExclude %>
 </p>
 
 <p>
-  <strong>Durationnumber:</strong>
+  <strong>Duratio:</strong>
   <%= @detail.durationNumber %>
-</p>
 
-<p>
-  <strong>Durationunit:</strong>
+  
   <%= @detail.durationUnit %>
 </p>
 
@@ -60,7 +64,7 @@
 </p>
 
 <p>
-  <strong>Additionalinfo:</strong>
+  <strong>Additional Information:</strong>
   <%= @detail.additionalInfo %>
 </p>
 

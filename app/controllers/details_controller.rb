@@ -71,7 +71,8 @@ class DetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def detail_params
-      params.require(:detail).permit(:public, :title, :description, :priceNumber, :pricePer, :whatInclude, :whatExclude, :durationNumber, :durationUnit, :groupSize, :availability, :additionalInfo,:category_id)
+      params.require(:detail).permit!
+      #params.require(:detail).permit(:,:public, :title, :description, :priceNumber, :pricePer, :whatInclude, :whatExclude, :durationNumber, :durationUnit, :groupSize, :availability, :additionalInfo,:category_id)
     end
 
 end
