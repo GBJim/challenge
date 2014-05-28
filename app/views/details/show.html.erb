@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Category:</strong>
+  <%= @detail.category.try :name %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @detail.public %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @detail.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @detail.description %>
+</p>
+
+<p>
+  <strong>Pricenumber:</strong>
+  <%= @detail.priceNumber %>
+</p>
+
+<p>
+  <strong>Priceper:</strong>
+  <%= @detail.pricePer %>
+</p>
+
+<p>
+  <strong>Whatinclude:</strong>
+  <%= @detail.whatInclude %>
+</p>
+
+<p>
+  <strong>Whatexclude:</strong>
+  <%= @detail.whatExclude %>
+</p>
+
+<p>
+  <strong>Durationnumber:</strong>
+  <%= @detail.durationNumber %>
+</p>
+
+<p>
+  <strong>Durationunit:</strong>
+  <%= @detail.durationUnit %>
+</p>
+
+<p>
+  <strong>Groupsize:</strong>
+  <%= @detail.groupSize %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @detail.availability %>
+</p>
+
+<p>
+  <strong>Additionalinfo:</strong>
+  <%= @detail.additionalInfo %>
+</p>
+
+<%= link_to 'Edit', edit_detail_path(@detail) %> |
+<%= link_to 'Back', details_path %>

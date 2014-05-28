@@ -1,0 +1,80 @@
+<%= form_for(@detail) do |f| %>
+  <% if @detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% @detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+<%= f.select :category_id, category_options %>
+</div>
+  <div class="field">
+    <%= f.label :public %>
+     <%= f.radio_button :public, "1", :checked => true %>
+     <%= f.label :private %>
+     <%= f.radio_button :public, "0" %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+
+ <%= f.fields_for :programs  do |builder|  %>
+ <%= builder.label  :Programs%><br>
+ <%= builder.label  :When?%>
+ <%= builder.text_area  :when%>
+ <%= builder.label  :What?%>
+ <%= builder.text_area  :what%>
+ <%= builder.label  :Remove%>
+ <%= builder.check_box '_destroy' %>
+</div>
+<% end %>
+  <div class="field">
+    <%= f.label :priceNumber %>
+    <%= f.number_field :priceNumber %>
+  
+    <%= f.label "€ per"   %>
+   <%= f.select :pricePer, [[:Person,"Person"],[:Group,"Group"],[:Hour,"Hour"],[:Day,"Day"]], :selected => [:Person,"Person"] %>
+  </div>
+  <div class="field">
+    <%= f.label :whatInclude %><br>
+    <%= f.text_area :whatInclude %>
+  </div>
+  <div class="field">
+    <%= f.label :whatExclude %><br>
+    <%= f.text_field :whatExclude %>
+  </div>
+  <div class="field">
+    <%= f.label :durationNumber %>
+    <%= f.select :durationNumber, ((1..12).map {|i| [i,i] }.insert 0, ["Please select",nil]), :selected => ["Please select",nil] %>
+
+    <%= f.label :durationUnit %>
+    <%= f.select :durationUnit, [[:Hours,"Hours"],[:Days,"Days"]], :selected => [:Hours,true]%>
+  </div>
+  <div class="field">
+    <%= f.label :groupSize %>
+    <%= f.select :groupSize, ((1..30).map {|i| [i,i] }.insert 0, ["Please select",nil]), :selected => ["Please select",nil] %>
+  </div>
+  <div class="field">
+    <%= f.label :availability %><br>
+    <%= f.text_area :availability %>
+  </div>
+  <div class="field">
+    <%= f.label :additionalInfo %><br>
+    <%= f.text_area :additionalInfo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

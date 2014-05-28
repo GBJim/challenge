@@ -1,0 +1,1 @@
+json.extract! @detail, :id, :public, :title, :description, :priceNumber, :pricePer, :whatInclude, :whatExclude, :durationNumber, :durationUnit, :groupSize, :availability, :additionalInfo, :created_at, :updated_at
